@@ -104,7 +104,19 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, list.count
   end
 
+  def test_it_can_prepend_in_different_quantity
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.append("dink")
+    list.prepend("dop")
+
+    assert_equal "dop plop suu dink", list.to_string
+    assert_equal 4, list.count
+  end
+
   def test_node_can_be_inserted
+    skip
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
