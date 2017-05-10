@@ -94,13 +94,24 @@ class LinkedListTest < Minitest::Test
     assert_equal "plop suu", list.to_string
   end
 
-  def test_it_can_work_with_different_data
+  def test_it_can_prepend
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
 
     assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
+  end
+
+  def test_node_can_be_inserted
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    assert_equal "woo", list.insert(1, "woo")
+    assert_equal "dop woo plop suu", list.to_string
   end
 
 

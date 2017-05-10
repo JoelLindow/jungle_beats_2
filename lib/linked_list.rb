@@ -41,7 +41,18 @@ class LinkedList
     text[0..-2]
   end
 
-  def prepend(arg)
+  def prepend(data)
+    if @head == nil
+      @head = Node.new(data)
+    else
+      previous_head = @head
+      @head = Node.new(data)
+      @head.next_node = previous_head
+    end
+  end
+
+  def insert(index, data)
+    data
   end
 
 end
