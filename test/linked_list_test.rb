@@ -83,5 +83,25 @@ class LinkedListTest < Minitest::Test
     assert_equal "beep", list.head.next_node.next_node.next_node.data
   end
 
+  def test_it_can_work_with_different_data
+    list = LinkedList.new
+    list.append("plop")
+
+    assert_equal "plop", list.to_string
+
+    list.append("suu")
+
+    assert_equal "plop suu", list.to_string
+  end
+
+  def test_it_can_work_with_different_data
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    assert_equal "dop plop suu", list.to_string
+  end
+
 
 end

@@ -41,4 +41,7 @@ class LinkedList
     text[0..-2]
   end
 
+  def prepend(arg)
+  end
+
 end
