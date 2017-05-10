@@ -6,24 +6,29 @@ class LinkedList
 
   def initialize
     @head = nil
-    @node_count = 0
   end
 
   def append(arg)
-    current_node = @head
-    @node_count += 1
-      if @head.nil?
-        @head = Node.new(arg)
-      else
-        while current_node.next_node != nil
-          current_node = current_node.next_node
-        end
-        current_node.next_node = Node.new(arg)
+    if @head.nil?
+      @head = Node.new(arg)
+    else
+      current_node = @head
+      while current_node.next_node != nil
+        current_node = current_node.next_node
       end
+      current_node.next_node = Node.new(arg)
+    end
+    arg
   end
 
   def count
-    @node_count
+    current_node = @head
+    counter = 0
+    while current_node != nil
+      counter += 1
+      current_node = current_node.next_node
+    end
+    counter
   end
 
   def to_string
