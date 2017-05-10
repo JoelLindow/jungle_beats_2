@@ -2,7 +2,7 @@ require './lib/node'
 require 'pry'
 
 class LinkedList
-attr_reader :head
+  attr_reader :head
 
   def initialize
     @head = nil
@@ -10,13 +10,16 @@ attr_reader :head
   end
 
   def append(arg)
+    current_node = @head
     @node_count += 1
-    if @head.nil?
-      @head = Node.new(arg)
-    else
-      @head.next_node = Node.new(arg)
-    end
-    arg
+      if @head.nil?
+        @head = Node.new(arg)
+      else
+        while current_node.next_node != nil
+          current_node = current_node.next_node
+        end
+        current_node.next_node = Node.new(arg)
+      end
   end
 
   def count
@@ -24,7 +27,13 @@ attr_reader :head
   end
 
   def to_string
-    head.data
+    current_node = @head
+    text = ""
+    while current_node != nil
+      text += (current_node.data + " ")
+      current_node = current_node.next_node
+    end
+    text[0..-2]
   end
 
 end
