@@ -13,7 +13,7 @@ class LinkedList
       @head = Node.new(arg)
     else
       current_node = @head
-      while current_node.next_node != nil
+      until current_node.next_node == nil
         current_node = current_node.next_node
       end
       current_node.next_node = Node.new(arg)
@@ -24,7 +24,7 @@ class LinkedList
   def count
     current_node = @head
     counter = 0
-    while current_node != nil
+    until current_node == nil
       counter += 1
       current_node = current_node.next_node
     end
@@ -34,7 +34,7 @@ class LinkedList
   def to_string
     current_node = @head
     text = ""
-    while current_node != nil
+    until current_node == nil
       text += (current_node.data + " ")
       current_node = current_node.next_node
     end
