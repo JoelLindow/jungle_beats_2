@@ -52,7 +52,24 @@ class LinkedList
   end
 
   def insert(index, data)
-    data
+    counter = 0
+    current_node = @head
+    new_node = Node.new(data)
+
+    until counter == index  #<-- Inserting new node
+      counter += 1
+      current_node = current_node.next_node
+    end
+    
+    new_node.next_node = current_node  #<-- Setting pointer for inserted node to node after insertion point
+    current_node = @head
+    counter = 0
+
+    until counter == (index - 1) #<-- setting pointer for "previous node"
+      counter += 1
+      current_node = current_node.next_node
+    end
+    current_node.next_node = new_node
   end
 
 end

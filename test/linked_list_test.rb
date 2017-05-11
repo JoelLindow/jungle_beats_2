@@ -116,15 +116,19 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_node_can_be_inserted
-    skip
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
+    list.insert(1, "woo")
 
-    assert_equal "woo", list.insert(1, "woo")
     assert_equal "dop woo plop suu", list.to_string
+
+    list.insert(2, "banana")
+    assert_equal "dop woo banana plop suu", list.to_string
   end
+
+  
 
 
 end
