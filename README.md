@@ -1,6 +1,6 @@
 # Jungle Beats - Linked List Project
 
-###This project is a Linked List that can perform the following functions, as of now:
+#### This project is a Linked List that can perform the following functions, as of now:
 
 * Set head
 * Append Nodes
