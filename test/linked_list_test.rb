@@ -128,7 +128,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop woo banana plop suu", list.to_string
   end
 
-  
+
 
 
 end
