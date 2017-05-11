@@ -52,12 +52,10 @@ class LinkedList
   end
 
   def insert(index, data) #<--- REFACTOR: split up further to give this method less individual responsibility!
-    counter = 0
     current_node = @head
     new_node = Node.new(data)         #<-- Making new node to insert
 
-    until counter == index            #<-- Inserting new node
-      counter += 1
+    index.times do
       current_node = current_node.next_node
     end
 

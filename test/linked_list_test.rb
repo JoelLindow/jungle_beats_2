@@ -127,8 +127,4 @@ class LinkedListTest < Minitest::Test
     list.insert(2, "banana")
     assert_equal "dop woo banana plop suu", list.to_string
   end
-
-
-
-
 end
