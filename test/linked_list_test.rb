@@ -5,7 +5,7 @@ require './lib/node'
 require "pry"
 
 class LinkedListTest < Minitest::Test
-
+  
   def test_head_of_list_starts_at_nil
     list = LinkedList.new
     assert_nil list.head
