@@ -1,5 +1,4 @@
 require './lib/node'
-require 'pry'
 
 class LinkedList
   attr_reader :head
@@ -51,26 +50,21 @@ class LinkedList
     end
   end
 
-  def insert(index, data) #<--- REFACTOR: split up further to give this method less individual responsibility!
+  def insert(index, data)
     current_node = @head
     new_node = Node.new(data)         #<-- Making new node to insert. "THE DANGLER"
 
-    index.times do
-      current_node = current_node.next_node
-    end
+    index.times { current_node = current_node.next_node }
 
-    new_node.next_node = current_node  #<-- Setting pointer (next node) on "THE DANGLER"
+    new_node.next_node = current_node #<-- Setting pointer (next node) on "THE DANGLER"
     place_node_in_list(new_node, index)
   end
 
   def place_node_in_list(new_node, index)
-    current_node = @head               #<-- for inserted node (new node)
-    counter = 0                        #<-- to node after insertion point
+    current_node = @head
 
-    until counter == (index - 1) #<-- Setting pointer for "previous node"
-      counter += 1
-      current_node = current_node.next_node
-    end
+    (index - 1).times { current_node = current_node.next_node }
+
     current_node.next_node = new_node #<-- Setting new pointer on pre-insert node
   end
 end
