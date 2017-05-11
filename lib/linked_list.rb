@@ -51,25 +51,25 @@ class LinkedList
     end
   end
 
-  def insert(index, data)
+  def insert(index, data) #<--- REFACTOR: split up further to give this method less individual responsibility!
     counter = 0
     current_node = @head
-    new_node = Node.new(data)
+    new_node = Node.new(data)         #<-- Making new node to insert
 
-    until counter == index  #<-- Inserting new node
+    until counter == index            #<-- Inserting new node
       counter += 1
       current_node = current_node.next_node
     end
-    
-    new_node.next_node = current_node  #<-- Setting pointer for inserted node to node after insertion point
-    current_node = @head
-    counter = 0
 
-    until counter == (index - 1) #<-- setting pointer for "previous node"
+    new_node.next_node = current_node  #<-- Setting pointer (next node)
+    current_node = @head               #<-- for inserted node (new node)
+    counter = 0                        #<-- to node after insertion point
+
+    until counter == (index - 1) #<-- Setting pointer for "previous node"
       counter += 1
       current_node = current_node.next_node
     end
-    current_node.next_node = new_node
+    current_node.next_node = new_node #<-- Setting new pointer on pre-insert node
   end
 
 end
